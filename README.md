@@ -11,6 +11,7 @@
 This project explores SQL Window Functions through practical examples. Window functions allow for complex analytical queries that would otherwise require multiple self-joins or subqueries. These functions perform calculations across a set of rows related to the current row and managing our products, providing powerful analytical capabilities.
 # DATA SET STRUCTURE
 Below is the SQL script used to create our 'sales' table and populate it with sample data:
+```sql
 DROP TABLE IF EXISTS sales;
 
 CREATE TABLE sales (
@@ -29,5 +30,4 @@ INSERT INTO sales (sale_id, product_category, sale_date, amount) VALUES
 (6, 'Clothing', TO_DATE('06-JAN-23', 'DD-MON-YY'), 300);
 
 SELECT * FROM sales;
-
-
+```
