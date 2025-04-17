@@ -33,7 +33,7 @@ SELECT * FROM sales;
 ```
 ![WhatsApp Image 2025-04-17 at 7 44 37 PM](https://github.com/user-attachments/assets/c3ffee3f-2d26-4718-96e8-651a881c9bd3)
 # Query 1: Comparison with Previous and Next Records (LAG and LEAD)
- Business Problem
+# Business Problem
 Compare each sales ,amounts with others in their Categories to identify products progression and anomalies.
 
 SQL Query
@@ -53,12 +53,14 @@ FROM sales;
 ```
 ![LAG AND LEAD](https://github.com/user-attachments/assets/c7cdd69b-039a-4790-8e87-bfbe8a808da1)
 # Real-World Application
-.Identifying products compression issues
-.Detecting potential equity problems in compensation
-.Planning for sales adjustments and promotions
+-Identifying products compression issues
+
+-Detecting potential equity problems in compensation
+
+-Planning for sales adjustments and promotions
 
 # Query 2: Ranking with RANK() vs DENSE_RANK()
- Purpose: Demonstrate ranking differences
+# Purpose: Demonstrate ranking differences
 ```sql
 SELECT 
   product_category, 
@@ -73,9 +75,10 @@ FROM sales;
 ![RANK AND DENSE RANK](https://github.com/user-attachments/assets/68a89262-d67d-4468-8502-5e3c178bc30e)
 # Real-World Application
 .Compensation analysis and planning
+
 .Performance evaluations
 # Query 3: Top 3 Sales per Category
- Purpose: Identify best-performing products
+ # Purpose: Identify best-performing products
 ```sql
 WITH ranked_sales AS (
   SELECT 
@@ -87,11 +90,13 @@ SELECT * FROM ranked_sales WHERE dr <= 3;
 ```
 # Real-World Application
 .Bonus distribution planning
+
 .Talent retention strategies
+
 .Succession planning
 
 # Query 4: First 2 Sales per Category
-Purpose: Find earliest transactions
+#Purpose: Find earliest transactions
 ```sql
 WITH earliest_sales AS (
   SELECT 
@@ -104,10 +109,11 @@ SELECT * FROM earliest_sales WHERE rn <= 2;
 ![WhatsApp Image 2025-04-15 at 11 16 10 PM](https://github.com/user-attachments/assets/25c795d5-e433-408c-87dd-12ae64c01355)
 # Real-World Application
 .Historical knowledge preservation
+
 .Understanding departmental growth patterns
 
 # Query 5: Aggregation with Window Functions
- Purpose: Compare category vs overall performance
+# Purpose: Compare category vs overall performance
 ```sql
 SELECT 
   *,
@@ -118,10 +124,13 @@ FROM sales;
 ![WhatsApp Image 2025-04-15 at 11 16 09 PM](https://github.com/user-attachments/assets/d46d2de7-c4cb-4531-909e-03fd60284b1b)
 # Real-World Application
 .Compensation equity analysis
+
 .Budget planning across departments
+
 .Identifying departments with competitive/non-competitive products
 # Conclusion
-This project demonstrates the power and flexibility of SQL window functions for data analysis. These functions provide significant advantages:
+# This project demonstrates the power and flexibility of SQL window functions for data analysis.
+These functions provide significant advantages:
 
 Efficiency: Window functions eliminate the need for complex self-joins or subqueries
 Readability: Queries become more concise and easier to understand
