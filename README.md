@@ -32,4 +32,25 @@ INSERT INTO sales (sale_id, product_category, sale_date, amount) VALUES
 SELECT * FROM sales;
 ```
 ![WhatsApp Image 2025-04-17 at 7 44 37 PM](https://github.com/user-attachments/assets/c3ffee3f-2d26-4718-96e8-651a881c9bd3)
+# 2. ANALYTICAL QUERIES
+
+ .QUERY 1: Compare Values with LAG() and LEAD()
+. PURPOSE: Show sales trends compared to previous/next records.
+```sql
+SELECT 
+  product_category, 
+  sale_date, 
+  amount,
+  LAG(amount, 1) OVER (PARTITION BY product_category ORDER BY sale_date) AS prev_amount,
+  LEAD(amount, 1) OVER (PARTITION BY product_category ORDER BY sale_date) AS next_amount,
+  CASE 
+    WHEN amount > LAG(amount, 1) OVER (PARTITION BY product_category ORDER BY sale_date) THEN 'HIGHER'
+    WHEN amount < LAG(amount, 1) OVER (PARTITION BY product_category ORDER BY sale_date) THEN 'LOWER'
+    ELSE 'EQUAL' 
+  END AS comparison
+FROM sales;
+```
+![LAG AND LEAD](https://github.com/user-attachments/assets/c7cdd69b-039a-4790-8e87-bfbe8a808da1)
+
+
 
