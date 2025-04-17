@@ -31,3 +31,5 @@ INSERT INTO sales (sale_id, product_category, sale_date, amount) VALUES
 
 SELECT * FROM sales;
 ```
+![WhatsApp Image 2025-04-17 at 7 44 37 PM](https://github.com/user-attachments/assets/c3ffee3f-2d26-4718-96e8-651a881c9bd3)
+
