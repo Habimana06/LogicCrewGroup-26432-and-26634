@@ -54,6 +54,7 @@ FROM sales;
 ![LAG AND LEAD](https://github.com/user-attachments/assets/c7cdd69b-039a-4790-8e87-bfbe8a808da1)
 # Query 2: Ranking with RANK() vs DENSE_RANK()
 # Purpose: Demonstrate ranking differences
+```sql
 SELECT 
   product_category, 
   sale_date, 
@@ -61,6 +62,8 @@ SELECT
   RANK() OVER (PARTITION BY product_category ORDER BY amount DESC) AS rank,
   DENSE_RANK() OVER (PARTITION BY product_category ORDER BY amount DESC) AS dense_rank
 FROM sales;
+```
+
 
 ![RANK AND DENSE RANK](https://github.com/user-attachments/assets/68a89262-d67d-4468-8502-5e3c178bc30e)
 
