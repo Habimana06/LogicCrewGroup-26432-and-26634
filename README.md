@@ -96,7 +96,7 @@ SELECT * FROM ranked_sales WHERE dr <= 3;
 .Succession planning
 
 # Query 4: First 2 Sales per Category
-#Purpose: Find earliest transactions
+# Purpose: Find earliest transactions
 ```sql
 WITH earliest_sales AS (
   SELECT 
