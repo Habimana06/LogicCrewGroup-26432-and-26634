@@ -32,10 +32,11 @@ INSERT INTO sales (sale_id, product_category, sale_date, amount) VALUES
 SELECT * FROM sales;
 ```
 ![WhatsApp Image 2025-04-17 at 7 44 37 PM](https://github.com/user-attachments/assets/c3ffee3f-2d26-4718-96e8-651a881c9bd3)
-# 2. ANALYTICAL QUERIES
+# Query 1: Comparison with Previous and Next Records (LAG and LEAD)
+# Business Problem
+Compare each sales ,amounts with others in their Categories to identify products progression and anomalies.
 
- .QUERY 1: Compare Values with LAG() and LEAD()
-. PURPOSE: Show sales trends compared to previous/next records.
+SQL Query
 ```sql
 SELECT 
   product_category, 
@@ -51,6 +52,16 @@ SELECT
 FROM sales;
 ```
 ![LAG AND LEAD](https://github.com/user-attachments/assets/c7cdd69b-039a-4790-8e87-bfbe8a808da1)
+# Query 2: Ranking with RANK() vs DENSE_RANK()
+# Purpose: Demonstrate ranking differences
+SELECT 
+  product_category, 
+  sale_date, 
+  amount,
+  RANK() OVER (PARTITION BY product_category ORDER BY amount DESC) AS rank,
+  DENSE_RANK() OVER (PARTITION BY product_category ORDER BY amount DESC) AS dense_rank
+FROM sales;
 
+![RANK AND DENSE RANK](https://github.com/user-attachments/assets/68a89262-d67d-4468-8502-5e3c178bc30e)
 
 
