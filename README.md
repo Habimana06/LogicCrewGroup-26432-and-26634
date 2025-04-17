@@ -19,6 +19,7 @@ CREATE TABLE sales (
   sale_date DATE,
   amount INT
 );
+'''
 
 
 
