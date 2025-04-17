@@ -52,6 +52,11 @@ SELECT
 FROM sales;
 ```
 ![LAG AND LEAD](https://github.com/user-attachments/assets/c7cdd69b-039a-4790-8e87-bfbe8a808da1)
+# Real-World Application
+Identifying products compression issues
+Detecting potential equity problems in compensation
+Planning for sales adjustments and promotions
+
 # Query 2: Ranking with RANK() vs DENSE_RANK()
 # Purpose: Demonstrate ranking differences
 ```sql
@@ -66,7 +71,26 @@ FROM sales;
 
 
 ![RANK AND DENSE RANK](https://github.com/user-attachments/assets/68a89262-d67d-4468-8502-5e3c178bc30e)
-# Query 3: First 2 Sales per Category
+# Real-World Application
+Compensation analysis and planning
+Performance evaluations
+# Query 3: Top 3 Sales per Category
+ Purpose: Identify best-performing products
+```sql
+WITH ranked_sales AS (
+  SELECT 
+    *,
+    DENSE_RANK() OVER (PARTITION BY product_category ORDER BY amount DESC) AS dr
+  FROM sales
+)
+SELECT * FROM ranked_sales WHERE dr <= 3;
+```
+# Real-World Application
+Bonus distribution planning
+Talent retention strategies
+Succession planning
+
+# Query 4: First 2 Sales per Category
 # Purpose: Find earliest transactions
 ```sql
 WITH earliest_sales AS (
@@ -78,6 +102,10 @@ WITH earliest_sales AS (
 SELECT * FROM earliest_sales WHERE rn <= 2;
 ```
 ![WhatsApp Image 2025-04-15 at 11 16 10 PM](https://github.com/user-attachments/assets/25c795d5-e433-408c-87dd-12ae64c01355)
+# Real-World Application
+Historical knowledge preservation
+Understanding departmental growth patterns
+
 # Query 5: Aggregation with Window Functions
 # Purpose: Compare category vs overall performance
 ```sql
@@ -88,4 +116,17 @@ SELECT
 FROM sales;
 ```
 ![WhatsApp Image 2025-04-15 at 11 16 09 PM](https://github.com/user-attachments/assets/d46d2de7-c4cb-4531-909e-03fd60284b1b)
+# Real-World Application
+
+Compensation equity analysis
+Budget planning across departments
+Identifying departments with competitive/non-competitive products
+# Conclusion
+# This project demonstrates the power and flexibility of SQL window functions for data analysis. These functions provide significant advantages:
+
+Efficiency: Window functions eliminate the need for complex self-joins or subqueries
+Readability: Queries become more concise and easier to understand
+Performance: Window functions are optimized by database engines for better performance
+Flexibility: They can handle a wide range of analytical scenarios
+By implementing these queries, we've shown how window functions can solve real business problems in human resources and finance domains.
 
