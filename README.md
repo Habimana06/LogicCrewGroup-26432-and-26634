@@ -66,5 +66,26 @@ FROM sales;
 
 
 ![RANK AND DENSE RANK](https://github.com/user-attachments/assets/68a89262-d67d-4468-8502-5e3c178bc30e)
-
+# Query 3: First 2 Sales per Category
+# Purpose: Find earliest transactions
+```sql
+WITH earliest_sales AS (
+  SELECT 
+    *,
+    ROW_NUMBER() OVER (PARTITION BY product_category ORDER BY sale_date) AS rn
+  FROM sales
+)
+SELECT * FROM earliest_sales WHERE rn <= 2;
+```
+![WhatsApp Image 2025-04-15 at 11 16 10 PM](https://github.com/user-attachments/assets/25c795d5-e433-408c-87dd-12ae64c01355)
+# Query 5: Aggregation with Window Functions
+# Purpose: Compare category vs overall performance
+```sql
+SELECT 
+  *,
+  MAX(amount) OVER (PARTITION BY product_category) AS category_max,
+  MAX(amount) OVER () AS overall_max
+FROM sales;
+```
+![WhatsApp Image 2025-04-15 at 11 16 09 PM](https://github.com/user-attachments/assets/d46d2de7-c4cb-4531-909e-03fd60284b1b)
 
